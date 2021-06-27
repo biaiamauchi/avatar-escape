@@ -116,7 +116,7 @@ public class BoardScreenDesigner {
                             boardCharacters[i][j].setX(30+150*(j));
                             boardCharacters[i][j].setY(5+100*(i));
 
-                            FadeAnimation animationFade = new FadeAnimation(boardCharacters[i][j], 0.05);
+                            FadeAnimation animationFade = new FadeAnimation(boardCharacters[i][j], 0.005);
                             animationFade.start();
                         }
                         else{
