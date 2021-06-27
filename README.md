@@ -49,12 +49,12 @@ Aqui ficarão as mídias do projeto: vídeo, imagens, animações, slides etc.
 # Vídeos do Projeto
 
 ## Vídeo da Prévia
-[Link para o Vídeo da Prévia do Jogo](../arquivos-apresentacao/Video-Previa.mp4)
+[Link para o Vídeo da Prévia do Jogo](./arquivos-apresentacao/Video-Previa.mp4)
 
 # Slides do Projeto
 
 ## Slides da Prévia
-[Link para os Slides da Prévia do Jogo](../arquivos-apresentacao/Slides-Previa.pdf)
+[Link para os Slides da Prévia do Jogo](./arquivos-apresentacao/Slides-Previa.pdf)
 
 # Documentação dos Componentes
 
@@ -62,19 +62,19 @@ Aqui ficarão as mídias do projeto: vídeo, imagens, animações, slides etc.
 
 ## Diagrama Geral do Projeto
 
-![Diagrama Geral](../arquivos-apresentacao/arquitetura-geral.jpeg)
+![Diagrama Geral](./arquivos-apresentacao/arquitetura-geral.jpeg)
 
 ## Diagrama Geral de Componentes
 
 Este é o diagrama compondo componentes para análise:
 
-![Diagrama Componentes](../arquivos-apresentacao/modelo-composicao.jpg)
+![Diagrama Componentes](./arquivos-apresentacao/modelo-composicao.jpg)
 
 ## Componente `Character`
 
 > Demonimamos como componente character uma classe e uma interface descrita a seguir. Este componente é responsável por agregar as informações de cada personagem do jogo, como nome, dano, etc.
 
-![Componente](../arquivos-apresentacao/character.jpg)
+![Componente](./arquivos-apresentacao/character.jpg)
 
 **Ficha Técnica**
 
@@ -88,13 +88,13 @@ Interfaces | `iCharacterProperties`
 
 Interfaces associadas a esse componente:
 
-![Diagrama Interfaces](../arquivos-apresentacao/Character-Component.jpeg)
+![Diagrama Interfaces](./arquivos-apresentacao/Character-Component.png)
 
 ## Componente `Cell`
 
 > Demonimamos como componente cell uma classe e uma interface descrita a seguir. Este componente é responsável por agregar um personagem do jogo e seus atributos.
 
-![Componente](../arquivos-apresentacao/cell.jpg)
+![Componente](./arquivos-apresentacao/cell.jpg)
 
 **Ficha Técnica**
 
@@ -108,13 +108,13 @@ Interfaces | `iCellProperties`
 
 Interfaces associadas a esse componente:
 
-![Diagrama Interfaces](../arquivos-apresentacao/Cell-Component.jpeg)
+![Diagrama Interfaces](./arquivos-apresentacao/Cell-Component.png)
 
 ## Componente `Level`
 
 > Demonimamos como componente Level um conjunto de classes e interfaces descritas a seguir. Este componente é responsável por agregar as células de um tabuleiro e seus atributos ou a criação da luta com o vilão da fase.
 > 
-![Componente](../arquivos-apresentacao/level.jpg)
+![Componente](./arquivos-apresentacao/level.jpg)
 
 **Ficha Técnica**
 
@@ -128,13 +128,13 @@ Interfaces | `iBoardProperties` <br> `iFightProperties`
 
 Interfaces associadas a esse componente:
 
-![Diagrama Interfaces](../arquivos-apresentacao/Level-Component.jpeg)
+![Diagrama Interfaces](./arquivos-apresentacao/Level-Component.jpeg)
 
 ## Componente `Builder`
 
 > Responsável pela criação do tabuleiro da fase ou da luta com o vilão da fase.
 
-![Componente](../arquivos-apresentacao/builder.jpg)
+![Componente](./arquivos-apresentacao/builder.jpg)
 
 **Ficha Técnica**
 
@@ -148,13 +148,13 @@ Interfaces | `iBuilderProperties`
 
 Interfaces associadas a esse componente:
 
-![Diagrama Interfaces](../arquivos-apresentacao/Builder-Component.jpeg)
+![Diagrama Interfaces](./arquivos-apresentacao/Builder-Component.jpeg)
 
 ## Componente `GameController`
 
 > Demonimamos como componente gameController uma classe e uma interface descrita a seguir. Este componente é responsável pelo controle geral do jogo.
 
-![Componente](../arquivos-apresentacao/gameController.jpg)
+![Componente](./arquivos-apresentacao/gameController.jpg)
 
 **Ficha Técnica**
 
@@ -168,13 +168,13 @@ Interfaces | `iControllerProperties`
 
 Interfaces associadas a esse componente:
 
-![Diagrama Interfaces](../arquivos-apresentacao/GameController-Component.jpeg)
+![Diagrama Interfaces](./arquivos-apresentacao/GameController-Component.png)
 
 ## Componente `GraphControllerComponent`
 
 > Ainda iremos fazer, mas demonimamos como componente graphController a classe descrita a seguir. Este componente é responsável pelo controle dos gráficos do jogo.
 
-![Componente](../arquivos-apresentacao/graphController.jpg)
+![Componente](./arquivos-apresentacao/graphController.jpg)
 
 **Ficha Técnica**
 
@@ -330,7 +330,7 @@ Método | Objetivo
 
 ## Diagrama da hierarquia de exceções
 
-![Hierarquia Exceções](../arquivos-apresentacao/Exception-hierarchy.jpeg)
+![Hierarquia Exceções](./arquivos-apresentacao/Exception-hierarchy.jpeg)
 
 ## Descrição das classes de exceção
 
