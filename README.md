@@ -62,7 +62,7 @@ Aqui ficarão as mídias do projeto: vídeo, imagens, animações, slides etc.
 
 ## Diagrama Geral do Projeto
 
-![Diagrama Geral](./arquivos-apresentacao/arquitetura-geral.jpeg)
+![Diagrama Geral](./arquivos-apresentacao/Arquitetura-Geral.png)
 
 ## Diagrama Geral de Componentes
 
@@ -110,9 +110,9 @@ Interfaces associadas a esse componente:
 
 ![Diagrama Interfaces](./arquivos-apresentacao/Cell-Component.png)
 
-## Componente `Level`
+## Componente `Board`
 
-> Demonimamos como componente Level um conjunto de classes e interfaces descritas a seguir. Este componente é responsável por agregar as células de um tabuleiro e seus atributos ou a criação da luta com o vilão da fase.
+> Demonimamos como componente Board um conjunto de classes e interfaces descritas a seguir. Este componente é responsável por agregar as células de um tabuleiro e seus atributos ou a criação da luta com o vilão da fase.
 > 
 ![Componente](./arquivos-apresentacao/level.jpg)
 
@@ -148,7 +148,7 @@ Interfaces | `iBuilderProperties`
 
 Interfaces associadas a esse componente:
 
-![Diagrama Interfaces](./arquivos-apresentacao/Builder-Component.jpeg)
+![Diagrama Interfaces](./arquivos-apresentacao/Builder-Component.png)
 
 ## Componente `GameController`
 
@@ -172,7 +172,7 @@ Interfaces associadas a esse componente:
 
 ## Componente `GraphControllerComponent`
 
-> Ainda iremos fazer, mas demonimamos como componente graphController a classe descrita a seguir. Este componente é responsável pelo controle dos gráficos do jogo.
+> Demonimamos como componente graphController uma classe e uma interface descrita a seguir. Este componente é responsável pelo controle geral do gráfico do jogo, separando o gráficos por: BoardScreen (tabuleiro), FightScreen (tela de batalha com vilão), InitialScreen (tela inicial de instruções do jogo), e PlayAgainScreen (tela de vitória ou derrota do jogo).
 
 ![Componente](./arquivos-apresentacao/graphController.jpg)
 
@@ -188,7 +188,7 @@ Interfaces |
 
 Interfaces associadas a esse componente:
 
-`Não há interfaces atreladas a este componente.`
+![Componente](./arquivos-apresentacao/GraphController-Component.png)
 
 ## Detalhamento das Interfaces
 
@@ -199,6 +199,7 @@ Informa e altera os atributos de um personagem.
 public interface iCharacterProperties {
     String getCharacter();
     void setCharacter(String character);
+    String getImageSource();
     int getLine();
     void setLine(int line);
     int getCollumn();
@@ -216,6 +217,7 @@ Método | Objetivo
 -------| --------
 `getCharacter` | Retorna o nome personagem que está na célula.
 `setCharacter` | Altera o nome personagem que está na célula.
+`getImageSource` | Retorna o caminho até a imagem do personagem.
 `getLine` | Retorna a linha que o personagem se encontra.
 `setLine` | Altera a linha que o personagem se encontra.
 `getCollumn` | Retorna a coluna que o personagem se encontra.
@@ -300,8 +302,8 @@ Interface que provê algumas das funções do tabuleiro
 public interface iBuilderProperties {
     void setCellsNeeded(boolean cellsNeeded);
     boolean getCellsNeeded();
-    void setBoardWidth(int boardWidth);
-    void setBoardHeight(int boardHeight);
+    void getBoardWidth(int boardWidth);
+    void getBoardHeight(int boardHeight);
 }
 ~~~
 
@@ -309,35 +311,62 @@ Método | Objetivo
 -------| --------
 `setCellsNeeded` | Atribui se é preciso células (pois caso sim, trata-se de um tabuleiro)
 `getCellsNeeded` | Retorna se é preciso de células para a construção daquela fase
-`setBoardWidth` | Atribui um valor para o tamanho do tabuleiro
-`setBoardHeight` | Atribui um valor para o altura do tabuleiro
+`getBoardWidth` | Retorna a largura do tabuleiro
+`getBoardHeight` | Retorna a altura do tabuleiro
 
-### Interface `iControllerPropeties`
+### Interface `iGameControllerPropeties`
 
 Interface que atualiza a interface gráfica
 
 ~~~java
 public interface iGameControllerProperties {
-    boolean getIsGameFinalized();
+    void play(String CSV);
+    iBuilderProperties getBoard();
+    iCharacterProperties getAvatar();
+    void resetGame();
 }
 ~~~
 
 Método | Objetivo
 -------| --------
-`getIsGameFinalized` | Retorna se o jogo está finalizado
+`play` | Chama a função do Builder para construir o jogo.
+`getBoard` | Retorna o tabuleiro.
+`getAvatar` | Retorna as informações atreladas ao Avatar em iCharacterProperties.
+`resetGame` | Reinicia o jogo.
+
+### Interface `iGraphControllerPropeties`
+
+Interface que atualiza a interface gráfica
+
+~~~java
+public interface iGraphControllerProperties {
+    iGameControllerProperties getGame();
+    void setGame(iGameControllerProperties game);
+    Stage getStage();
+    void setStage(Stage fixStage);
+}
+~~~
+
+Método | Objetivo
+-------| --------
+`getGame` | Retorna o tabuleiro da fase.
+`setGame` | Altera o tabuleiro da fase.
+`getStage` | Retorna a fase.
+`setStage` | Altera  a fase.
 
 # Plano de Exceções
 
 ## Diagrama da hierarquia de exceções
 
-![Hierarquia Exceções](./arquivos-apresentacao/Exception-hierarchy.jpeg)
+![Hierarquia Exceções](./arquivos-apresentacao/Exception-Hierarchy.png)
 
 ## Descrição das classes de exceção
 
 
 Classe | Descrição
 ----- | -----
-InvalidAction | Engloba todas as exceções de ações não aceitas.
-InvalidMovement | Indica que o movimento para fora do tabuleiro é inútil.
-InvalidCommand | Indica a ação feita com uma tecla inválida é inútil na fase de tabuleiro.
-InvalidAttack | Indica a ação feita com uma tecla inválida é inútil na fase de batalha com vilão.
+InvalidKey | Engloba todas as exceções de ações feitas com teclas inválidas.
+InvalidKeyBoard | Indica a ação feita com uma tecla inválida é inútil na fase de tabuleiro.
+InvalidKeyFight | Indica a ação feita com uma tecla inválida é inútil na fase de batalha com vilão.
+InvalidMovement | Engloba as exceções de movimentos não aceitos no tabuleiro
+OutOfBoard | Indica que o movimento para fora do tabuleiro é inútil.
