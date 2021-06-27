@@ -1,14 +1,15 @@
 package GraphControllerComponent.PlayAgainScreen;
 
-import GameControllerComponent.iGameControllerProperties;
-import GraphControllerComponent.Main.GraphController;
 import GraphControllerComponent.Main.iGraphControllerProperties;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 
 public class PlayAgainScreenController {
-    iGameControllerProperties game;
-    iGraphControllerProperties screen = new GraphController();
+    private iGraphControllerProperties screen;
+
+    public PlayAgainScreenController(iGraphControllerProperties screen){
+        this.screen = screen;
+    }
 
     public Scene playAgainScreen(String messageSource){
         PlayAgainScreenDesigner playAgainScreen = new PlayAgainScreenDesigner();
