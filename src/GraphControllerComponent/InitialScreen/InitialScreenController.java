@@ -7,12 +7,10 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 
 public class InitialScreenController {
-    private iGameControllerProperties game;
-    private iGraphControllerProperties screen = new GraphController();
+    private iGraphControllerProperties screen;
 
-    public InitialScreenController(iGameControllerProperties game){
-        this.game = game;
-        this.screen.setGame(game);
+    public InitialScreenController(iGraphControllerProperties screen){
+        this.screen = screen;
     }
 
     public Scene initialScene(){

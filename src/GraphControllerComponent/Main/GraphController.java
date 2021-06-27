@@ -9,7 +9,8 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class GraphController extends Application implements iGraphControllerProperties {
-    private iGameControllerProperties game = new GameController();
+    private static iGameControllerProperties game = new GameController();
+    private static iGraphControllerProperties screen = new GraphController();
     private static Stage stage;
 
     public static void main(String[] args) {
@@ -18,7 +19,7 @@ public class GraphController extends Application implements iGraphControllerProp
 
     @Override
     public void start(Stage stage) throws Exception {
-        Scene initialScreen = new InitialScreenController(game).initialScene();
+        Scene initialScreen = new InitialScreenController(screen).initialScene();
         stage.setScene(initialScreen);
         stage.setTitle("Avatar Escape");
         stage.getIcons().add(new Image(String.valueOf(getClass().getResource("/assets/icon/icon.png"))));

@@ -1,4 +1,4 @@
-package exceptions;
+package exceptions.InvalidKey;
 
 public class InvalidKey extends Exception{
     private static final long serialVersionUID = 7292358893425468203L;
