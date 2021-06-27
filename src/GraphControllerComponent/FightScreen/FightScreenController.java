@@ -1,11 +1,10 @@
 package GraphControllerComponent.FightScreen;
 
-import GameControllerComponent.iGameControllerProperties;
 import GraphControllerComponent.BoardScreen.BoardScreenController;
 import GraphControllerComponent.FadeAnimation;
-import GraphControllerComponent.Main.GraphController;
 import GraphControllerComponent.PlayAgainScreen.PlayAgainScreenController;
 import GraphControllerComponent.Main.iGraphControllerProperties;
+import exceptions.InvalidKey.InvalidKeyFight;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -29,12 +28,10 @@ public class FightScreenController {
     private Label avatarLabelMovement = new Label();
     private Label villainLabelMovement = new Label();
 
-    private iGameControllerProperties game;
-    private iGraphControllerProperties screen = new GraphController();
+    private iGraphControllerProperties screen;
 
-    public FightScreenController(iGameControllerProperties game){
-        this.game = game;
-        this.screen.setGame(game);
+    public FightScreenController(iGraphControllerProperties screen){
+        this.screen = screen;
     }
 
     public Scene fightScreen(){
@@ -114,21 +111,26 @@ public class FightScreenController {
 
                 verifyGameProgress();
             }
-            else
-                avatarLabelMovement.setText("Tecla inválida");
+            else{
+                try{
+                    throw new InvalidKeyFight("Tecla inválida");
+                } catch(InvalidKeyFight ex){
+                    avatarLabelMovement.setText(ex.getMessage());
+                }
+            }
         }
     };
 
     public void verifyGameProgress(){
         if(villainLife.getProgress() <= 0){
-            game.getBoard().getBoard().setLevel(game.getBoard().getBoard().getLevel() + 1);
+            screen.getGame().getBoard().getBoard().setLevel(screen.getGame().getBoard().getBoard().getLevel() + 1);
 
-            if(game.getBoard().getBoard().getLevel() == 4) {
-                screen.getStage().setTitle("Avatar Escape - Fase " + game.getBoard().getBoard().getLevel());
-                screen.getStage().setScene(new FightScreenController(game).fightScreen());
+            if(screen.getGame().getBoard().getBoard().getLevel() == 4) {
+                screen.getStage().setTitle("Avatar Escape - Fase " + screen.getGame().getBoard().getBoard().getLevel());
+                screen.getStage().setScene(new FightScreenController(screen).fightScreen());
             }
-            else if(game.getBoard().getBoard().getLevel() <= 3){
-                screen.getStage().setScene(new BoardScreenController(game).boardScreen());
+            else if(screen.getGame().getBoard().getBoard().getLevel() <= 3){
+                screen.getStage().setScene(new BoardScreenController(screen).boardScreen());
             }
             else{
                 screen.getStage().setScene(new PlayAgainScreenController().playAgainScreen("/assets/messages/win.png"));

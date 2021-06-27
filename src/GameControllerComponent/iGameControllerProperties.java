@@ -11,4 +11,6 @@ public interface iGameControllerProperties {
     public iBuilderProperties getBoard();
 
     public iCharacterProperties getAvatar();
+
+    public void resetGame();
 }

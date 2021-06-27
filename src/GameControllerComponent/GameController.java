@@ -29,4 +29,12 @@ public class GameController implements iGameControllerProperties{
     public iCharacterProperties getAvatar(){
         return this.avatar;
     }
+
+    public void resetGame(){
+        this.avatar.setCollumn(0);
+        this.avatar.setLine(0);
+        this.avatar.setLife(100);
+        this.avatar.setScore(25);
+        this.game.getBoard().setLevel(1);
+    }
 }

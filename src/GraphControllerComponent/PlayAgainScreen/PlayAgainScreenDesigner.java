@@ -1,7 +1,5 @@
 package GraphControllerComponent.PlayAgainScreen;
 
-import GameControllerComponent.GameController;
-import GameControllerComponent.iGameControllerProperties;
 import GraphControllerComponent.BoardScreen.BoardScreenController;
 import GraphControllerComponent.Main.iGraphControllerProperties;
 import javafx.event.EventHandler;
@@ -10,7 +8,6 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
 
 public class PlayAgainScreenDesigner {
     private iGraphControllerProperties screen;
@@ -39,8 +36,8 @@ public class PlayAgainScreenDesigner {
         playAgain.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(javafx.scene.input.MouseEvent e) {
-                iGameControllerProperties newGame = new GameController();
-                screen.getStage().setScene(new BoardScreenController(newGame).boardScreen());
+                screen.getGame().resetGame();
+                screen.getStage().setScene(new BoardScreenController(screen).boardScreen());
             }
         });
 

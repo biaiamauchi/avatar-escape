@@ -23,12 +23,12 @@ public class BoardScreenDesigner {
                             Label message){
 
         this.screen = screen;
-        criarAvatar(boardCharacters, avatar);
+        createAvatar(boardCharacters, avatar);
         return new Group(board(boardCharacters), avatar, avatarInfo(avatarLife, avatarLifeLabel, avatarScore, avatarScoreLabel, message));
 
     }
 
-    private void criarAvatar(ImageView boardCharacters[][], ImageView avatar){
+    private void createAvatar(ImageView boardCharacters[][], ImageView avatar){
         Image avatarImagem = new Image(String.valueOf(getClass().getResource("/assets/characters/heroes/Aang.png")));
         boardCharacters[0][0] = new ImageView(avatarImagem);
 
@@ -37,7 +37,7 @@ public class BoardScreenDesigner {
         avatar.setImage(avatarImagem);
     }
 
-    private void criarAvatarLife(ProgressBar avatarLife, Label avatarLifeLabel){
+    private void createAvatarLife(ProgressBar avatarLife, Label avatarLifeLabel){
         avatarLife.setProgress((double)screen.getGame().getAvatar().getLife()/100);
         avatarLife.setStyle("-fx-accent: red");
         avatarLife.setMaxWidth(100);
@@ -51,7 +51,7 @@ public class BoardScreenDesigner {
         avatarLifeLabel.setFont(new Font("Inter", 18));
     }
 
-    private void criarAvatarScore(ProgressBar avatarScore, Label avatarScoreLabel){
+    private void createAvatarScore(ProgressBar avatarScore, Label avatarScoreLabel){
         avatarScore.setProgress((double)screen.getGame().getAvatar().getScore()/100);
         avatarScore.setStyle("-fx-accent: blue");
         avatarScore.setMaxWidth(100);
@@ -66,8 +66,8 @@ public class BoardScreenDesigner {
     }
 
     private Group avatarInfo(ProgressBar avatarLife, Label avatarLifeLabel, ProgressBar avatarScore, Label avatarScoreLabel, Label message){
-        criarAvatarLife(avatarLife, avatarLifeLabel);
-        criarAvatarScore(avatarScore, avatarScoreLabel);
+        createAvatarLife(avatarLife, avatarLifeLabel);
+        createAvatarScore(avatarScore, avatarScoreLabel);
 
         Rectangle fundo = new Rectangle(300, 600, Color.GRAY);
 

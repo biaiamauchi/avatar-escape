@@ -1,6 +1,8 @@
-package exceptions;
+package exceptions.InvalidKey;
 
-public class InvalidKeyFight extends InvalidKey{
+import exceptions.InvalidKey.InvalidKey;
+
+public class InvalidKeyFight extends InvalidKey {
     private static final long serialVersionUID = -8873349960670095644L;
 
     public InvalidKeyFight() {

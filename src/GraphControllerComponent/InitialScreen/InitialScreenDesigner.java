@@ -37,7 +37,7 @@ public class InitialScreenDesigner {
         play.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(javafx.scene.input.MouseEvent e) {
-                screen.getStage().setScene(new BoardScreenController(screen.getGame()).boardScreen());
+                screen.getStage().setScene(new BoardScreenController(screen).boardScreen());
             }
         });
 
