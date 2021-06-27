@@ -17,17 +17,11 @@
       <change beforePath="$PROJECT_DIR$/out/production/avatar-escape/GraphControllerComponent/BoardScreen/BoardScreenController$1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/avatar-escape/GraphControllerComponent/BoardScreen/BoardScreenController.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/avatar-escape/GraphControllerComponent/BoardScreen/BoardScreenDesigner.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/avatar-escape/GraphControllerComponent/BoardScreen/BoardScreenDesigner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/avatar-escape/GraphControllerComponent/FightScreen/FightScreenController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/avatar-escape/GraphControllerComponent/FightScreen/FightScreenController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/avatar-escape/GraphControllerComponent/FightScreen/FightScreenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/avatar-escape/GraphControllerComponent/FightScreen/FightScreenController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/avatar-escape/GraphControllerComponent/InitialScreen/InitialScreenController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/avatar-escape/GraphControllerComponent/InitialScreen/InitialScreenDesigner$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/avatar-escape/GraphControllerComponent/InitialScreen/InitialScreenDesigner.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/avatar-escape/GraphControllerComponent/Main/GraphController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/avatar-escape/GraphControllerComponent/Main/GraphController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/avatar-escape/GraphControllerComponent/PlayAgainScreen/PlayAgainScreenDesigner$1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/avatar-escape/GraphControllerComponent/PlayAgainScreen/PlayAgainScreenDesigner.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/avatar-escape/assets/instructions/gameInstructions.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/avatar-escape/assets/instructions/gameInstructions.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CharacterComponent/iCharacterProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CharacterComponent/iCharacterProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameControllerComponent/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameControllerComponent/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GameControllerComponent/iGameControllerProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameControllerComponent/iGameControllerProperties.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GraphControllerComponent/BoardScreen/BoardScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphControllerComponent/BoardScreen/BoardScreenController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GraphControllerComponent/BoardScreen/BoardScreenDesigner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphControllerComponent/BoardScreen/BoardScreenDesigner.java" afterDir="false" />
@@ -247,7 +241,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/Program Files/AdoptOpenJDK/jdk-15.0.2.7-hotspot" />
       <option name="MAIN_CLASS_NAME" value="GraphControllerComponent.Main.GraphController" />
       <module name="avatar-escape" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\biaia\Documents\2020 UNICAMP\MC322\openjfx-11.0.2_windows-x64_bin-sdk\javafx-sdk-11.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path C:\Users\pedro\javafx-sdk-11.0.2\lib --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="sample.*" />

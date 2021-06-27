@@ -22,10 +22,6 @@ public class GameController implements iGameControllerProperties{
         return this.game;
     }
 
-    public void setGame(iGameControllerProperties game){
-        this.game = game.getBoard();
-    }
-
     public iCharacterProperties getAvatar(){
         return this.avatar;
     }
