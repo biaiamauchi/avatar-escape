@@ -112,7 +112,7 @@ public class BoardScreenController extends GameController {
                 boardCharacters[newLine][newCollumn].opacityProperty().set(1);
 
                 if((int)(avatarLife.getProgress()*100) <= 0){
-                    screen.getStage().setScene(new PlayAgainScreenController().playAgainScreen("/assets/messages/lose.png"));
+                    screen.getStage().setScene(new PlayAgainScreenController(screen).playAgainScreen("/assets/messages/lose.png"));
                 }
             }
             else {

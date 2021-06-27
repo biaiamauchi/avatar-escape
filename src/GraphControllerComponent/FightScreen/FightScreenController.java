@@ -47,7 +47,7 @@ public class FightScreenController {
         return cena;
     }
 
-    EventHandler<KeyEvent> movementsEvent = new EventHandler<>() {
+    private EventHandler<KeyEvent> movementsEvent = new EventHandler<>() {
         @Override
         public void handle(KeyEvent event) {
             String text = "";
@@ -121,7 +121,7 @@ public class FightScreenController {
         }
     };
 
-    public void verifyGameProgress(){
+    private void verifyGameProgress(){
         if(villainLife.getProgress() <= 0){
             screen.getGame().getBoard().getBoard().setLevel(screen.getGame().getBoard().getBoard().getLevel() + 1);
 
@@ -133,11 +133,11 @@ public class FightScreenController {
                 screen.getStage().setScene(new BoardScreenController(screen).boardScreen());
             }
             else{
-                screen.getStage().setScene(new PlayAgainScreenController().playAgainScreen("/assets/messages/win.png"));
+                screen.getStage().setScene(new PlayAgainScreenController(screen).playAgainScreen("/assets/messages/win.png"));
             }
         }
         else if(avatarLife.getProgress() <= 0){
-            screen.getStage().setScene(new PlayAgainScreenController().playAgainScreen("/assets/messages/lose.png"));
+            screen.getStage().setScene(new PlayAgainScreenController(screen).playAgainScreen("/assets/messages/lose.png"));
         }
     }
 
