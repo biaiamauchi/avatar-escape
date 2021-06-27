@@ -1,4 +1,4 @@
-# Apresentação Parcial do Projeto
+# Apresentação Final do Projeto
 
 # Estrutura de Arquivos e Pastas
 
@@ -51,12 +51,43 @@ Aqui ficarão as mídias do projeto: vídeo, imagens, animações, slides etc.
 ## Vídeo da Prévia
 [Link para o Vídeo da Prévia do Jogo](./arquivos-apresentacao/Video-Previa.mp4)
 
+## Vídeo do Jogo
+[Link para o Vídeo de Demonstração do Jogo]()
+
+
 # Slides do Projeto
 
 ## Slides da Prévia
 [Link para os Slides da Prévia do Jogo](./arquivos-apresentacao/Slides-Previa.pdf)
 
+## Slides da Apresentação Final
+[Link para os Slides da Apresentação Final do Jogo]()
+
+## Relatório de Evolução
+> Texto Texto Texto
+
+
+# Destaques de Código
+`Texto Texto Texto`
+
+
+# Destaques de Pattern
+
+## Diagrama do Pattern
+`Texto Texto Texto`
+
+## Código do Pattern
+`Texto Texto Texto`
+
+
+# Conclusões e Trabalhos Futuros
+> Apresente aqui as conclusões do projeto e propostas de trabalho futuro. Esta é a oportunidade em que você pode indicar melhorias no projeto a partir de lições aprendidas e conhecimentos adquiridos durante a realização do projeto, mas que não puderam ser implementadas por questões de tempo. Por exemplo, há design patterns aprendidos no final do curso que provavelmente não puderam ser implementados no jogo -- este é o espaço onde você pode apresentar como aplicaria o pattern no futuro para melhorar o jogo.
+
+
 # Documentação dos Componentes
+O vídeo a seguir apresenta um detalhamento de um projeto baseado em componentes:
+`COLOCAR UM VÍDEO?`
+
 
 # Diagramas
 
@@ -90,6 +121,26 @@ Interfaces associadas a esse componente:
 
 ![Diagrama Interfaces](./arquivos-apresentacao/Character-Component.png)
 
+Interface agregadora do componente em Java:
+
+~~~java
+public interface iCharacterProperties {
+    String getCharacter();
+    void setCharacter(String character);
+    String getImageSource();
+    int getLine();
+    void setLine(int line);
+    int getCollumn();
+    void setCollumn(int collumn);
+    int getScore();
+    void setScore(int score);
+    int getLife();
+    void setLife(int life);
+    void addScore(int score);
+    void addLife(int life);
+}
+~~~
+
 ## Componente `Cell`
 
 > Demonimamos como componente cell uma classe e uma interface descrita a seguir. Este componente é responsável por agregar um personagem do jogo e seus atributos.
@@ -110,10 +161,21 @@ Interfaces associadas a esse componente:
 
 ![Diagrama Interfaces](./arquivos-apresentacao/Cell-Component.png)
 
+Interface agregadora do componente em Java:
+
+~~~java
+public interface iCellProperties {
+    iCharacterProperties getCharacter();
+    void setCharacter(iCharacterProperties character);
+    boolean getCellVisited();
+    void setCellVisited(boolean cellVisited);
+}
+~~~
+
 ## Componente `Board`
 
 > Demonimamos como componente Board um conjunto de classes e interfaces descritas a seguir. Este componente é responsável por agregar as células de um tabuleiro e seus atributos ou a criação da luta com o vilão da fase.
->
+
 ![Componente](./arquivos-apresentacao/level.jpg)
 
 **Ficha Técnica**
@@ -129,6 +191,19 @@ Interfaces | `iBoardProperties` <br> `iFightProperties`
 Interfaces associadas a esse componente:
 
 ![Diagrama Interfaces](./arquivos-apresentacao/Level-Component.jpeg)
+
+Interface agregadora do componente em Java:
+
+~~~java
+public interface iBoardProperties {
+    int getLevel();
+    void setLevel(int level);
+    void setCellBoard(iCharacterProperties character, int line, int collumn);
+    iCharacterProperties getCellBoard(int line, int collumn);
+    iCellProperties getCell(int line, int collumn);
+    iCellProperties[][] getBoard();
+}
+~~~
 
 ## Componente `Builder`
 
@@ -150,6 +225,17 @@ Interfaces associadas a esse componente:
 
 ![Diagrama Interfaces](./arquivos-apresentacao/Builder-Component.png)
 
+Interface agregadora do componente em Java:
+
+~~~java
+public interface iBuilderProperties {
+    void setCellsNeeded(boolean cellsNeeded);
+    boolean getCellsNeeded();
+    void getBoardWidth(int boardWidth);
+    void getBoardHeight(int boardHeight);
+}
+~~~
+
 ## Componente `GameController`
 
 > Demonimamos como componente gameController uma classe e uma interface descrita a seguir. Este componente é responsável pelo controle geral do jogo.
@@ -170,11 +256,22 @@ Interfaces associadas a esse componente:
 
 ![Diagrama Interfaces](./arquivos-apresentacao/GameController-Component.png)
 
+Interface agregadora do componente em Java:
+
+~~~java
+public interface iGameControllerProperties {
+    void play(String CSV);
+    iBuilderProperties getBoard();
+    iCharacterProperties getAvatar();
+    void resetGame();
+}
+~~~
+
 ## Componente `GraphControllerComponent`
 
 > Demonimamos como componente graphController uma classe e uma interface descrita a seguir. Este componente é responsável pelo controle geral do gráfico do jogo, separando o gráficos por: BoardScreen (tabuleiro), FightScreen (tela de batalha com vilão), InitialScreen (tela inicial de instruções do jogo), e PlayAgainScreen (tela de vitória ou derrota do jogo).
 
-![Componente](./arquivos-apresentacao/graphController.jpg)
+![Componente - ALTERAR A IMAGEM](./arquivos-apresentacao/graphController.jpg)
 
 **Ficha Técnica**
 
@@ -190,28 +287,23 @@ Interfaces associadas a esse componente:
 
 ![Componente](./arquivos-apresentacao/GraphController-Component.png)
 
+Interface agregadora do componente em Java:
+
+~~~java
+public interface iGraphControllerProperties {
+    iGameControllerProperties getGame();
+    void setGame(iGameControllerProperties game);
+    Stage getStage();
+    void setStage(Stage fixStage);
+}
+~~~
+
+
 ## Detalhamento das Interfaces
 
 ### Interface `iCharacterproperties`
 
 Informa e altera os atributos de um personagem.
-~~~java
-public interface iCharacterProperties {
-    String getCharacter();
-    void setCharacter(String character);
-    String getImageSource();
-    int getLine();
-    void setLine(int line);
-    int getCollumn();
-    void setCollumn(int collumn);
-    int getScore();
-    void setScore(int score);
-    int getLife();
-    void setLife(int life);
-    void addScore(int score);
-    void addLife(int life);
-}
-~~~
 
 Método | Objetivo
 -------| --------
@@ -232,14 +324,6 @@ Método | Objetivo
 ### Interface `iCellproperties`
 
 Define e altera o personagem da célula, assim como informa se a célula ja foi visitada ou não.
-~~~java
-public interface iCellProperties {
-    iCharacterProperties getCharacter();
-    void setCharacter(iCharacterProperties character);
-    boolean getCellVisited();
-    void setCellVisited(boolean cellVisited);
-}
-~~~
 
 Método | Objetivo
 -------| --------
@@ -252,17 +336,6 @@ Método | Objetivo
 
 Interface que provê algumas das funções do tabuleiro
 
-~~~java
-public interface iBoardProperties {
-    int getLevel();
-    void setLevel(int level);
-    void setCellBoard(iCharacterProperties character, int line, int collumn);
-    iCharacterProperties getCellBoard(int line, int collumn);
-    iCellProperties getCell(int line, int collumn);
-    iCellProperties[][] getBoard();
-}
-~~~
-
 Método | Objetivo
 -------| --------
 `getLevel` | Retorna o nível do tabuleiro
@@ -272,7 +345,7 @@ Método | Objetivo
 `getCell` | Retorna determinada célula do tabuleiro
 `getBoard` | Retorna o tabuleiro
 
-### Interface `iFightProperties`
+### Interface `iFightProperties - O QUE É ELA?`
 
 Interface que provê algumas das funções da luta
 
@@ -298,15 +371,6 @@ Método | Objetivo
 
 Interface que provê algumas das funções do tabuleiro
 
-~~~java
-public interface iBuilderProperties {
-    void setCellsNeeded(boolean cellsNeeded);
-    boolean getCellsNeeded();
-    void getBoardWidth(int boardWidth);
-    void getBoardHeight(int boardHeight);
-}
-~~~
-
 Método | Objetivo
 -------| --------
 `setCellsNeeded` | Atribui se é preciso células (pois caso sim, trata-se de um tabuleiro)
@@ -316,16 +380,7 @@ Método | Objetivo
 
 ### Interface `iGameControllerPropeties`
 
-Interface que atualiza a interface gráfica
-
-~~~java
-public interface iGameControllerProperties {
-    void play(String CSV);
-    iBuilderProperties getBoard();
-    iCharacterProperties getAvatar();
-    void resetGame();
-}
-~~~
+Interface que atualiza as informações gerais do Jogo para a construção da interface gráfica.
 
 Método | Objetivo
 -------| --------
@@ -338,21 +393,13 @@ Método | Objetivo
 
 Interface que atualiza a interface gráfica
 
-~~~java
-public interface iGraphControllerProperties {
-    iGameControllerProperties getGame();
-    void setGame(iGameControllerProperties game);
-    Stage getStage();
-    void setStage(Stage fixStage);
-}
-~~~
-
 Método | Objetivo
 -------| --------
 `getGame` | Retorna o tabuleiro da fase.
 `setGame` | Altera o tabuleiro da fase.
 `getStage` | Retorna a fase.
 `setStage` | Altera  a fase.
+
 
 # Plano de Exceções
 
