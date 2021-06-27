@@ -36,7 +36,7 @@ Aqui ficarão as mídias do projeto: vídeo, imagens, animações, slides etc.
 
 # Descrição Resumida do Projeto/Jogo
 
-> O Avatar Aang precisa manter o equílibro, no entanto, a Nação do Fogo possui outros planos. 
+> O Avatar Aang precisa manter o equílibro, no entanto, a Nação do Fogo possui outros planos.
 > Aang precisa passar por alguns de seus inimigos, com a ajuda de seus amigos, até enfrentar o Senhor do Fogo Ozai e, finalmente, acabar com a tirania da Nação do Fogo sobre o mundo. <br> <br>
 > Para jogar, o usuário deve se locomover pelo tabuleiro podendo encontrar sentinelas (escondidos no mapa, que o fazem perder vida) ou seus amigos (visíveis no mapa, que o fazem ganhar vida e "estado avatar" - força).
 > Chegando a porta no final do tabuleiro, o usuário deve lutar contra o vilão da fase, com 4 tipos de ações que podem o curar, proteger ou atacar o inimigo. Vencendo essa batalha, o usuário vai para a próxima fase. <br> <br>
@@ -113,7 +113,7 @@ Interfaces associadas a esse componente:
 ## Componente `Board`
 
 > Demonimamos como componente Board um conjunto de classes e interfaces descritas a seguir. Este componente é responsável por agregar as células de um tabuleiro e seus atributos ou a criação da luta com o vilão da fase.
-> 
+>
 ![Componente](./arquivos-apresentacao/level.jpg)
 
 **Ficha Técnica**
@@ -368,5 +368,5 @@ Classe | Descrição
 InvalidKey | Engloba todas as exceções de ações feitas com teclas inválidas.
 InvalidKeyBoard | Indica a ação feita com uma tecla inválida é inútil na fase de tabuleiro.
 InvalidKeyFight | Indica a ação feita com uma tecla inválida é inútil na fase de batalha com vilão.
-InvalidMovement | Engloba as exceções de movimentos não aceitos no tabuleiro
+InvalidMovement | Engloba as exceções de movimentos não aceitos no tabuleiro.
 OutOfBoard | Indica que o movimento para fora do tabuleiro é inútil.
