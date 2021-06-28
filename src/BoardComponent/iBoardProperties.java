@@ -5,6 +5,7 @@ import CharacterComponent.iCharacterProperties;
 
 public interface iBoardProperties {
     public int getLevel();
+    
     public void setLevel(int level);
 
     public void setCellBoard(iCharacterProperties character, int line, int collumn);

@@ -1,6 +1,6 @@
-# Apresentação Parcial do Projeto
+# Apresentação Final do Projeto
 
-# Estrutura de Arquivos e Pastas
+# Estrutura de Arquivos e Pastas - A FAZER
 
 Modelo de pastas final: (ainda em construção)
 
@@ -36,7 +36,7 @@ Aqui ficarão as mídias do projeto: vídeo, imagens, animações, slides etc.
 
 # Descrição Resumida do Projeto/Jogo
 
-> O Avatar Aang precisa manter o equílibro, no entanto, a Nação do Fogo possui outros planos. 
+> O Avatar Aang precisa manter o equílibro, no entanto, a Nação do Fogo possui outros planos.
 > Aang precisa passar por alguns de seus inimigos, com a ajuda de seus amigos, até enfrentar o Senhor do Fogo Ozai e, finalmente, acabar com a tirania da Nação do Fogo sobre o mundo. <br> <br>
 > Para jogar, o usuário deve se locomover pelo tabuleiro podendo encontrar sentinelas (escondidos no mapa, que o fazem perder vida) ou seus amigos (visíveis no mapa, que o fazem ganhar vida e "estado avatar" - força).
 > Chegando a porta no final do tabuleiro, o usuário deve lutar contra o vilão da fase, com 4 tipos de ações que podem o curar, proteger ou atacar o inimigo. Vencendo essa batalha, o usuário vai para a próxima fase. <br> <br>
@@ -51,20 +51,72 @@ Aqui ficarão as mídias do projeto: vídeo, imagens, animações, slides etc.
 ## Vídeo da Prévia
 [Link para o Vídeo da Prévia do Jogo](./arquivos-apresentacao/Video-Previa.mp4)
 
+## Vídeo do Jogo - A FAZER
+[Link para o Vídeo de Demonstração do Jogo]()
+
+
 # Slides do Projeto
 
 ## Slides da Prévia
 [Link para os Slides da Prévia do Jogo](./arquivos-apresentacao/Slides-Previa.pdf)
 
-# Documentação dos Componentes
+## Slides da Apresentação Final - A FAZER
+[Link para os Slides da Apresentação Final do Jogo]()
+
+## Relatório de Evolução
+> Nossa ideia inicial era realizar um jogo tipo "campo minado" com algumas estratégias a mais.
+> Para isso, realizamos primeiro um protótipo visual do jogo, e começamos a lapidar a nossa ideia.
+> 
+> Logo na Entrega Parcial, fomos apresentados ao fato do nosso jogo, nas etapas da batalha, ser mais expositivo do que participativo.
+> Visando corrigir esse problema, remodelamos essa etapa para que os usuários pudessem escolher "cartas" para utilizar nas batalhas, iniciando aqui a segunda etapa do nosso projeto.
+> Na primeira etapa do projeto (até a entrega parcial), nós tinhamos bem pouco do projeto programado, por isso, quando começamos a nova etapa, acabaram havendo várias alterações no nosso código, sua arquitetura e lógica.
+> 
+> Nessa segunda etapa do projeto, algumas ideias surgiram, como, por exemplo, o usuário ter 3 vidas antes do tabuleiro mudar e a imagem, de onde estavam os sentinelas, ficar na tela por alguns segundos antes de desaparecer. 
+> Com essas novas ideias já acertadas, iniciamos a parte de programação.
+> Alteramos a nossa arquitetura, ao ver que comunicação de certos componentes não havia como ser feita da maneira que havíamos pensado o código anteriormente.
+> Assim, melhoramos a nossas interfaces para que a classe GameController tivesse mais contato com a classe Characters, mudança necessária para a geração facilitada dos gráficos do jogo, que falaremos posteriormente.
+> 
+> Começamos a programar as classes separadas, deixando a GraphController por último, visto que não conhecíamos muito sobre ferramentas de interfáce gráfica em java, e por isso, ainda tinhamos que pesquisar sobre, para em seguida montar essa classe.
+> Após finalizarmos a programação das demais classes, passamos para a construção da Interfáce Gráfica.
+> Fomos apresentados por um amigo do curso a ferramenta JavaFX, a qual permitia a criação dos gráficos de uma forma mais intuitiva e simples.
+> 
+> Estudamos sobre o uso do JavaFX, e então partimos para a construção dos gráficos. Vimos logo de começo que não poderíamos manter a estrutura pensada anteriormente (da construção dos gráficos ser feita em uma mesma classe).
+> Por isso, além da classe GraphController, criamos classes para cada tipo de tabuleiro, com uma classe para a manutenção das ações do usuário (controllers) e os seus graficos (designers, que posicionavam e estilizavam os elementos na tela).
+> Assim, dividimos em InitialScreen (tela de instruções do jogo), BoardScreen (tela do tabuleiro de campo minado), FightScreen (tela de batalha contra vilões) e PlayAgainScreen (tela de vitória ou derrota).
+> Ademais, também vimos que algumas das nossas ideias do design do jogo não conseguiriam ser desenvolvidas com o tempo e a ferramenta que tínhamos, o que levou a leves alterações em nosso design.
+> 
+> Por fim, terminamos o nosso projeto, e finalizamos a documentação do README.
+
+
+# Destaques de Código - A FAZER
+`Texto Texto Texto`
+
+
+# Destaques de Pattern
+
+## Diagrama do Pattern - A FAZER
+`Texto Texto Texto`
+
+## Código do Pattern - A FAZER
+`Texto Texto Texto`
+
+
+# Conclusões e Trabalhos Futuros - A FAZER
+> Apresente aqui as conclusões do projeto e propostas de trabalho futuro. Esta é a oportunidade em que você pode indicar melhorias no projeto a partir de lições aprendidas e conhecimentos adquiridos durante a realização do projeto, mas que não puderam ser implementadas por questões de tempo. Por exemplo, há design patterns aprendidos no final do curso que provavelmente não puderam ser implementados no jogo -- este é o espaço onde você pode apresentar como aplicaria o pattern no futuro para melhorar o jogo.
+
+
+# Documentação dos Componentes - A FAZER
+O vídeo a seguir apresenta um detalhamento de um projeto baseado em componentes:
+`COLOCAR UM VÍDEO?`
+
 
 # Diagramas
 
 ## Diagrama Geral do Projeto
 
-![Diagrama Geral](./arquivos-apresentacao/arquitetura-geral.jpeg)
+![Diagrama Geral](./arquivos-apresentacao/Arquitetura-Geral.png)
 
-## Diagrama Geral de Componentes
+## Diagrama Geral de Componentes - ALTERAR
 
 Este é o diagrama compondo componentes para análise:
 
@@ -90,6 +142,26 @@ Interfaces associadas a esse componente:
 
 ![Diagrama Interfaces](./arquivos-apresentacao/Character-Component.png)
 
+Interface agregadora do componente em Java:
+
+~~~java
+public interface iCharacterProperties {
+    String getCharacter();
+    void setCharacter(String character);
+    String getImageSource();
+    int getLine();
+    void setLine(int line);
+    int getCollumn();
+    void setCollumn(int collumn);
+    int getScore();
+    void setScore(int score);
+    int getLife();
+    void setLife(int life);
+    void addScore(int score);
+    void addLife(int life);
+}
+~~~
+
 ## Componente `Cell`
 
 > Demonimamos como componente cell uma classe e uma interface descrita a seguir. Este componente é responsável por agregar um personagem do jogo e seus atributos.
@@ -110,10 +182,21 @@ Interfaces associadas a esse componente:
 
 ![Diagrama Interfaces](./arquivos-apresentacao/Cell-Component.png)
 
-## Componente `Level`
+Interface agregadora do componente em Java:
 
-> Demonimamos como componente Level um conjunto de classes e interfaces descritas a seguir. Este componente é responsável por agregar as células de um tabuleiro e seus atributos ou a criação da luta com o vilão da fase.
-> 
+~~~java
+public interface iCellProperties {
+    iCharacterProperties getCharacter();
+    void setCharacter(iCharacterProperties character);
+    boolean getCellVisited();
+    void setCellVisited(boolean cellVisited);
+}
+~~~
+
+## Componente `Board` - A FAZER
+
+> Demonimamos como componente Board um conjunto de classes e interfaces descritas a seguir. Este componente é responsável por agregar as células de um tabuleiro e seus atributos ou a criação da luta com o vilão da fase.
+
 ![Componente](./arquivos-apresentacao/level.jpg)
 
 **Ficha Técnica**
@@ -129,6 +212,19 @@ Interfaces | `iBoardProperties` <br> `iFightProperties`
 Interfaces associadas a esse componente:
 
 ![Diagrama Interfaces](./arquivos-apresentacao/Level-Component.jpeg)
+
+Interface agregadora do componente em Java:
+
+~~~java
+public interface iBoardProperties {
+    int getLevel();
+    void setLevel(int level);
+    void setCellBoard(iCharacterProperties character, int line, int collumn);
+    iCharacterProperties getCellBoard(int line, int collumn);
+    iCellProperties getCell(int line, int collumn);
+    iCellProperties[][] getBoard();
+}
+~~~
 
 ## Componente `Builder`
 
@@ -148,7 +244,18 @@ Interfaces | `iBuilderProperties`
 
 Interfaces associadas a esse componente:
 
-![Diagrama Interfaces](./arquivos-apresentacao/Builder-Component.jpeg)
+![Diagrama Interfaces](./arquivos-apresentacao/Builder-Component.png)
+
+Interface agregadora do componente em Java:
+
+~~~java
+public interface iBuilderProperties {
+    void setCellsNeeded(boolean cellsNeeded);
+    boolean getCellsNeeded();
+    void getBoardWidth(int boardWidth);
+    void getBoardHeight(int boardHeight);
+}
+~~~
 
 ## Componente `GameController`
 
@@ -170,11 +277,22 @@ Interfaces associadas a esse componente:
 
 ![Diagrama Interfaces](./arquivos-apresentacao/GameController-Component.png)
 
+Interface agregadora do componente em Java:
+
+~~~java
+public interface iGameControllerProperties {
+    void play(String CSV);
+    iBuilderProperties getBoard();
+    iCharacterProperties getAvatar();
+    void resetGame();
+}
+~~~
+
 ## Componente `GraphControllerComponent`
 
-> Ainda iremos fazer, mas demonimamos como componente graphController a classe descrita a seguir. Este componente é responsável pelo controle dos gráficos do jogo.
+> Demonimamos como componente graphController uma classe e uma interface descrita a seguir. Este componente é responsável pelo controle geral do gráfico do jogo, separando o gráficos por: BoardScreen (tabuleiro), FightScreen (tela de batalha com vilão), InitialScreen (tela inicial de instruções do jogo), e PlayAgainScreen (tela de vitória ou derrota do jogo).
 
-![Componente](./arquivos-apresentacao/graphController.jpg)
+![Componente - ALTERAR A IMAGEM](./arquivos-apresentacao/graphController.jpg)
 
 **Ficha Técnica**
 
@@ -188,34 +306,31 @@ Interfaces |
 
 Interfaces associadas a esse componente:
 
-`Não há interfaces atreladas a este componente.`
+![Componente](./arquivos-apresentacao/GraphController-Component.png)
+
+Interface agregadora do componente em Java:
+
+~~~java
+public interface iGraphControllerProperties {
+    iGameControllerProperties getGame();
+    void setGame(iGameControllerProperties game);
+    Stage getStage();
+    void setStage(Stage fixStage);
+}
+~~~
+
 
 ## Detalhamento das Interfaces
 
 ### Interface `iCharacterproperties`
 
 Informa e altera os atributos de um personagem.
-~~~java
-public interface iCharacterProperties {
-    String getCharacter();
-    void setCharacter(String character);
-    int getLine();
-    void setLine(int line);
-    int getCollumn();
-    void setCollumn(int collumn);
-    int getScore();
-    void setScore(int score);
-    int getLife();
-    void setLife(int life);
-    void addScore(int score);
-    void addLife(int life);
-}
-~~~
 
 Método | Objetivo
 -------| --------
 `getCharacter` | Retorna o nome personagem que está na célula.
 `setCharacter` | Altera o nome personagem que está na célula.
+`getImageSource` | Retorna o caminho até a imagem do personagem.
 `getLine` | Retorna a linha que o personagem se encontra.
 `setLine` | Altera a linha que o personagem se encontra.
 `getCollumn` | Retorna a coluna que o personagem se encontra.
@@ -230,14 +345,6 @@ Método | Objetivo
 ### Interface `iCellproperties`
 
 Define e altera o personagem da célula, assim como informa se a célula ja foi visitada ou não.
-~~~java
-public interface iCellProperties {
-    iCharacterProperties getCharacter();
-    void setCharacter(iCharacterProperties character);
-    boolean getCellVisited();
-    void setCellVisited(boolean cellVisited);
-}
-~~~
 
 Método | Objetivo
 -------| --------
@@ -250,17 +357,6 @@ Método | Objetivo
 
 Interface que provê algumas das funções do tabuleiro
 
-~~~java
-public interface iBoardProperties {
-    int getLevel();
-    void setLevel(int level);
-    void setCellBoard(iCharacterProperties character, int line, int collumn);
-    iCharacterProperties getCellBoard(int line, int collumn);
-    iCellProperties getCell(int line, int collumn);
-    iCellProperties[][] getBoard();
-}
-~~~
-
 Método | Objetivo
 -------| --------
 `getLevel` | Retorna o nível do tabuleiro
@@ -270,7 +366,7 @@ Método | Objetivo
 `getCell` | Retorna determinada célula do tabuleiro
 `getBoard` | Retorna o tabuleiro
 
-### Interface `iFightProperties`
+### Interface `iFightProperties - A FAZER`
 
 Interface que provê algumas das funções da luta
 
@@ -296,48 +392,49 @@ Método | Objetivo
 
 Interface que provê algumas das funções do tabuleiro
 
-~~~java
-public interface iBuilderProperties {
-    void setCellsNeeded(boolean cellsNeeded);
-    boolean getCellsNeeded();
-    void setBoardWidth(int boardWidth);
-    void setBoardHeight(int boardHeight);
-}
-~~~
-
 Método | Objetivo
 -------| --------
 `setCellsNeeded` | Atribui se é preciso células (pois caso sim, trata-se de um tabuleiro)
 `getCellsNeeded` | Retorna se é preciso de células para a construção daquela fase
-`setBoardWidth` | Atribui um valor para o tamanho do tabuleiro
-`setBoardHeight` | Atribui um valor para o altura do tabuleiro
+`getBoardWidth` | Retorna a largura do tabuleiro
+`getBoardHeight` | Retorna a altura do tabuleiro
 
-### Interface `iControllerPropeties`
+### Interface `iGameControllerPropeties`
 
-Interface que atualiza a interface gráfica
-
-~~~java
-public interface iGameControllerProperties {
-    boolean getIsGameFinalized();
-}
-~~~
+Interface que atualiza as informações gerais do Jogo para a construção da interface gráfica.
 
 Método | Objetivo
 -------| --------
-`getIsGameFinalized` | Retorna se o jogo está finalizado
+`play` | Chama a função do Builder para construir o jogo.
+`getBoard` | Retorna o tabuleiro.
+`getAvatar` | Retorna as informações atreladas ao Avatar em iCharacterProperties.
+`resetGame` | Reinicia o jogo.
+
+### Interface `iGraphControllerPropeties`
+
+Interface que atualiza a interface gráfica
+
+Método | Objetivo
+-------| --------
+`getGame` | Retorna o tabuleiro da fase.
+`setGame` | Altera o tabuleiro da fase.
+`getStage` | Retorna a fase.
+`setStage` | Altera  a fase.
+
 
 # Plano de Exceções
 
 ## Diagrama da hierarquia de exceções
 
-![Hierarquia Exceções](./arquivos-apresentacao/Exception-hierarchy.jpeg)
+![Hierarquia Exceções](./arquivos-apresentacao/Exception-Hierarchy.png)
 
 ## Descrição das classes de exceção
 
 
 Classe | Descrição
 ----- | -----
-InvalidAction | Engloba todas as exceções de ações não aceitas.
-InvalidMovement | Indica que o movimento para fora do tabuleiro é inútil.
-InvalidCommand | Indica a ação feita com uma tecla inválida é inútil na fase de tabuleiro.
-InvalidAttack | Indica a ação feita com uma tecla inválida é inútil na fase de batalha com vilão.
+InvalidKey | Engloba todas as exceções de ações feitas com teclas inválidas.
+InvalidKeyBoard | Indica a ação feita com uma tecla inválida é inútil na fase de tabuleiro.
+InvalidKeyFight | Indica a ação feita com uma tecla inválida é inútil na fase de batalha com vilão.
+InvalidMovement | Engloba as exceções de movimentos não aceitos no tabuleiro.
+OutOfBoard | Indica que o movimento para fora do tabuleiro é inútil.

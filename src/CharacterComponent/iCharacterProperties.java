@@ -5,6 +5,8 @@ import javafx.scene.image.ImageView;
 public interface iCharacterProperties {
     public String getCharacter();
 
+    public void setCharacter(String character);
+
     public String getImageSource();
 
     public void setScore(int score);
@@ -21,11 +23,9 @@ public interface iCharacterProperties {
 
     public int getLine();
 
-    public int getCollumn();
-
-    public void setCharacter(String character);
-
     public void setLine(int line);
+
+    public int getCollumn();
 
     public void setCollumn(int collumn);
 }
