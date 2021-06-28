@@ -1,8 +1,8 @@
 # Apresentação Final do Projeto
 
-# Estrutura de Arquivos e Pastas - A FAZER
+# Estrutura de Arquivos e Pastas
 
-Modelo de pastas final: (ainda em construção)
+Modelo de pastas final:
 
 ~~~
 ├── README.md          <- apresentação do projeto
@@ -14,23 +14,15 @@ Modelo de pastas final: (ainda em construção)
 │   ├── src            <- arquivos-fonte do projeto (.java)
 │   │
 │   ├── out            <- arquivos em bytecode (.class)
-│   │
+|   |
+|   ├── assets         <- mídias usadas no projetos
+|   |
 │   └── README.md      <- instruções básicas de instalação/execução
 │
-└── assets             <- mídias usadas no projeto
+|── avatar-escape-app  <- Application JAR
+|
+└── assets             <- arquivos para README
 ~~~
-
-## `data`
-
-Aqui ficarão os arquivos de dados usados no projeto. Como, por exemplo, os arquivos .txt que serão usados para a criação de mapas.
-
-## `src`
-
-Projeto em Java, utilizamos a IDE IntelliJ, incluindo todos os arquivos de dados e bibliotecas necessários para a sua execução.
-
-## `assets`
-
-Aqui ficarão as mídias do projeto: vídeo, imagens, animações, slides etc.
 
 # Projeto `Avatar-Escape`
 
@@ -49,7 +41,7 @@ Aqui ficarão as mídias do projeto: vídeo, imagens, animações, slides etc.
 # Vídeos do Projeto
 
 ## Vídeo da Prévia
-[Link para o Vídeo da Prévia do Jogo](./arquivos-apresentacao/Video-Previa.mp4)
+[Link para o Vídeo da Prévia do Jogo](assets/Video-Previa.mp4)
 
 ## Vídeo do Jogo - A FAZER
 [Link para o Vídeo de Demonstração do Jogo]()
@@ -58,7 +50,7 @@ Aqui ficarão as mídias do projeto: vídeo, imagens, animações, slides etc.
 # Slides do Projeto
 
 ## Slides da Prévia
-[Link para os Slides da Prévia do Jogo](./arquivos-apresentacao/Slides-Previa.pdf)
+[Link para os Slides da Prévia do Jogo](assets/Slides-Previa.pdf)
 
 ## Slides da Apresentação Final - A FAZER
 [Link para os Slides da Apresentação Final do Jogo]()
@@ -71,7 +63,7 @@ Aqui ficarão as mídias do projeto: vídeo, imagens, animações, slides etc.
 > Visando corrigir esse problema, remodelamos essa etapa para que os usuários pudessem escolher "cartas" para utilizar nas batalhas, iniciando aqui a segunda etapa do nosso projeto.
 > Na primeira etapa do projeto (até a entrega parcial), nós tinhamos bem pouco do projeto programado, por isso, quando começamos a nova etapa, acabaram havendo várias alterações no nosso código, sua arquitetura e lógica.
 > 
-> Nessa segunda etapa do projeto, algumas ideias surgiram, como, por exemplo, o usuário ter 3 vidas antes do tabuleiro mudar e a imagem, de onde estavam os sentinelas, ficar na tela por alguns segundos antes de desaparecer. 
+> Nessa segunda etapa do projeto, algumas ideias surgiram, como, por exemplo, o usuário ter 3 vidas antes do tabuleiro mudar (algo que não priorizamos fazer por conta do tempo) e a imagem, de onde estavam os sentinelas, ficar na tela por alguns segundos antes de desaparecer. 
 > Com essas novas ideias já acertadas, iniciamos a parte de programação.
 > Alteramos a nossa arquitetura, ao ver que comunicação de certos componentes não havia como ser feita da maneira que havíamos pensado o código anteriormente.
 > Assim, melhoramos a nossas interfaces para que a classe GameController tivesse mais contato com a classe Characters, mudança necessária para a geração facilitada dos gráficos do jogo, que falaremos posteriormente.
@@ -88,45 +80,155 @@ Aqui ficarão as mídias do projeto: vídeo, imagens, animações, slides etc.
 > Por fim, terminamos o nosso projeto, e finalizamos a documentação do README.
 
 
-# Destaques de Código - A FAZER
-`Texto Texto Texto`
+# Destaques de Código
+Aqui temos a classe Builder que faz a criação do tabuleiro baseado em um mapa que é enviado como argumento.
+~~~java
+public class Builder implements iBuilderProperties{
+    private iBoardProperties board;
+    
+    <...>
+
+    private void buildLevel(String CSVsource){ //constrói o tabuleiro
+        CSVUser positions = new CSVUser();
+        positions.setDataSource(CSVsource);
+        String commands[][] = positions.requestCommands(); //retorno = [[1:1, P], [1:2, _], ...,[4:4, _]];
+        for (int i = 0; i < boardHeight*boardWidth; i++) {
+            if (commands[i][1].equals("A")) {
+                iCharacterProperties aang = new Aang("Aang", "/assets/characters/heroes/Aang.png", i / 6, i % 6, 100, 25);
+                board.setCellBoard(aang, i / 6, i % 6);
+            } else if (commands[i][1].equals("K")) {
+                iCharacterProperties kataraSokka = new Heroes("Katara", "/assets/characters/heroes/SokkaKatara.png", i / 6, i % 6, 0, 20);
+                board.setCellBoard(kataraSokka, i / 6, i % 6);
+            } else if (commands[i][1].equals("T")) {
+                iCharacterProperties toph = new Heroes("Toph", "/assets/characters/heroes/Toph.png", i / 6, i % 6, 10, 10);
+                board.setCellBoard(toph, i / 6, i % 6);
+            } else if (commands[i][1].equals("Z")) {
+                iCharacterProperties zuko = new Heroes("Zuko", "/assets/characters/heroes/Zuko.png", i / 6, i % 6, 10, 15);
+                board.setCellBoard(zuko, i / 6, i % 6);
+            } else if (commands[i][1].equals("F")) {
+                iCharacterProperties sentinela = new Villains("FireVillain", "/assets/characters/villains/sentinela.png", i / 6, i % 6, 0, -5);
+                board.setCellBoard(sentinela, i / 6, i % 6);
+            } else if (commands[i][1].equals("AP")) {
+                iCharacterProperties appa = new Heroes("Appa", "/assets/characters/heroes/Appa.png", i / 6, i % 6, 0, 0);
+                board.setCellBoard(appa, i / 6, i % 6);
+            } else if (commands[i][1].equals("-")) {
+                board.setCellBoard(null, i / 6, i % 6);
+            } else if (commands[i][1].equals("P")) {
+                iCharacterProperties door = new Heroes("Door", "/assets/characters/heroes/Door.png", i / 6, i % 6, 0, 0);
+                board.setCellBoard(door, i / 6, i % 6);
+            }
+        }
+    }
+}
+~~~
+
+A seleção de qual mapa usar é feita randomicamente, mas baseada em mapas já construídos em arquivos CSV
+~~~java
+public class BoardScreenController extends GameController {
+    <...>
+
+    public Scene boardScreen(){
+        screen.getStage().setTitle("Avatar Escape - Fase " + screen.getGame().getBoard().getBoard().getLevel());
+        String map = "src/assets/maps/level" + screen.getGame().getBoard().getBoard().getLevel() + "/fase" + screen.getGame().getBoard().getBoard().getLevel() + "." + String.valueOf(new Random().nextInt(15) + 1) + ".csv";
+        this.screen.getGame().play(map);
+
+        <...>
+    }
+
+    <...>
+}
+~~~
+
+# Destaques de Pattern (Singleton)
+#### Objetivo: 
+A ideia de utilizar um Creation Pattern (Singleton) é ter certeza de que uma classe terá uma única instância, provendo acesso global a essa instância.
+
+#### Aplicabilidade:
+Para salvar o estado do player (Aang) durante as mudanças de fases e no próprio controle de criação do tabuleiro, fazemos com que o GameController (assim como acontece com o Stage do JavaFX em que é instanciado uma única vez) seja instanciado apenas uma vez. Caso seja preciso resetar o jogo, temos uma função para isso.
+
+## Diagrama do Pattern
+A classe GraphController declara o método getGame que retorna a instânc ia estática 
+do iGameControllerProperties, fazendo com que haja uma autorreferência da classe. 
+
+![Diagrama do Pattern](assets/diagramaDesignPattern.jpeg)
+
+## Código do Pattern
+No código apresentarmos parte da classe GraphController em que focamos no instanciamento do jogo e da tela apenas uma vez. Vide os trechos abaixo em que, ao invés de criarem novas instâncias, apenas acessam globalmente as únicas já criadas.
+~~~java
+public class GraphController extends Application implements iGraphControllerProperties {
+    private static iGameControllerProperties game = new GameController();
+    private static iGraphControllerProperties screen = new GraphController();
+    
+    <...>
+
+    public iGameControllerProperties getGame(){
+        return this.game;
+    }
+}
+~~~
+~~~java
+public class InitialScreenController {
+    private iGraphControllerProperties screen;
+
+    public InitialScreenController(iGraphControllerProperties screen) {
+        this.screen = screen;
+    }
+    
+    <...>
+}
+~~~
+~~~java
+public class BoardScreenController extends GameController {
+    <...>
+    private iGraphControllerProperties screen;
+
+    public BoardScreenController(iGraphControllerProperties screen) {
+        this.screen = screen;
+    }
+    
+    <...>
+}
+~~~
 
 
-# Destaques de Pattern
+# Conclusões e Trabalhos Futuros
+> Cabe dizer aqui que ficamos muito contentes com o resultado final do trabalho,
+> pois colocamos em prática um semestre inteiro de aprendizado em POO. Além disso, também
+> aprendemos uma a manipular um novo tipo de ferramenta, isto é, o JavaFX. <br><br>
+> Ao longo do projeto, verificamos que algumas ideias levariam certo tempo e maturidade para serem
+> aplicadas. No entanto, ficam como um anseio da dupla de, no futuro, programá-los:
+> 1. ####Efeitos Sonoros:
+>   * Pensar na experiência do usuário é importante para qualquer tipo de aplicação, sendo o uso
+>   de sons em jogos um componente de tal experiência, já que poderia indicar movimentos corretos e incorretos, por exemplo.
+> 2. ####Vidas:
+>   * Como citado anteriormente, para que o jogo não precisasse ser reiniciado toda vez que o usuário chegasse a vida 0%,
+>   gostariamos de que houvessem 3 chances, assim, o usuário iria jogar no mesmo mapa durante essas 3 chances.
+> 3. ####Animações e mídias mais sofisticadas:
+>   * Para melhor o aspecto visual do jogo, também queremos implementar animações mais elegantes
+>   e em 3D.
+> 4. ####Mapas Randomicos:
+>   * Por fim, seria muito interessante pensar numa aplicação que cria mapas aleatoriamente
+>   sem precisar criar vários previamente.
 
-## Diagrama do Pattern - A FAZER
-`Texto Texto Texto`
-
-## Código do Pattern - A FAZER
-`Texto Texto Texto`
-
-
-# Conclusões e Trabalhos Futuros - A FAZER
-> Apresente aqui as conclusões do projeto e propostas de trabalho futuro. Esta é a oportunidade em que você pode indicar melhorias no projeto a partir de lições aprendidas e conhecimentos adquiridos durante a realização do projeto, mas que não puderam ser implementadas por questões de tempo. Por exemplo, há design patterns aprendidos no final do curso que provavelmente não puderam ser implementados no jogo -- este é o espaço onde você pode apresentar como aplicaria o pattern no futuro para melhorar o jogo.
-
-
-# Documentação dos Componentes - A FAZER
-O vídeo a seguir apresenta um detalhamento de um projeto baseado em componentes:
-`COLOCAR UM VÍDEO?`
-
+# Documentação dos Componentes
 
 # Diagramas
 
 ## Diagrama Geral do Projeto
 
-![Diagrama Geral](./arquivos-apresentacao/Arquitetura-Geral.png)
+![Diagrama Geral](assets/Arquitetura-Geral.png)
 
-## Diagrama Geral de Componentes - ALTERAR
+## Diagrama Geral de Componentes
 
 Este é o diagrama compondo componentes para análise:
 
-![Diagrama Componentes](./arquivos-apresentacao/modelo-composicao.jpg)
+![Diagrama Componentes](assets/diagramaGeral-componentes.jpg)
 
 ## Componente `Character`
 
 > Demonimamos como componente character uma classe e uma interface descrita a seguir. Este componente é responsável por agregar as informações de cada personagem do jogo, como nome, dano, etc.
 
-![Componente](./arquivos-apresentacao/character.jpg)
+![Componente](assets/character.jpg)
 
 **Ficha Técnica**
 
@@ -140,7 +242,7 @@ Interfaces | `iCharacterProperties`
 
 Interfaces associadas a esse componente:
 
-![Diagrama Interfaces](./arquivos-apresentacao/Character-Component.png)
+![Diagrama Interfaces](assets/Character-Component.png)
 
 Interface agregadora do componente em Java:
 
@@ -166,7 +268,7 @@ public interface iCharacterProperties {
 
 > Demonimamos como componente cell uma classe e uma interface descrita a seguir. Este componente é responsável por agregar um personagem do jogo e seus atributos.
 
-![Componente](./arquivos-apresentacao/cell.jpg)
+![Componente](assets/cell.jpg)
 
 **Ficha Técnica**
 
@@ -180,7 +282,7 @@ Interfaces | `iCellProperties`
 
 Interfaces associadas a esse componente:
 
-![Diagrama Interfaces](./arquivos-apresentacao/Cell-Component.png)
+![Diagrama Interfaces](assets/Cell-Component.png)
 
 Interface agregadora do componente em Java:
 
@@ -193,11 +295,11 @@ public interface iCellProperties {
 }
 ~~~
 
-## Componente `Board` - A FAZER
+## Componente `Board`
 
 > Demonimamos como componente Board um conjunto de classes e interfaces descritas a seguir. Este componente é responsável por agregar as células de um tabuleiro e seus atributos ou a criação da luta com o vilão da fase.
 
-![Componente](./arquivos-apresentacao/level.jpg)
+![Componente](assets/boardComponent.jpg)
 
 **Ficha Técnica**
 
@@ -205,13 +307,13 @@ item | Detalhamento
 ----- | -----
 Classe | `src.BoardComponent`
 Autores | `Beatriz Iamauchi Barroso` <br> `Pedro Igor Salvador Alves`
-Interfaces | `iBoardProperties` <br> `iFightProperties`
+Interfaces | `iBoardProperties`
 
 ### Interfaces
 
 Interfaces associadas a esse componente:
 
-![Diagrama Interfaces](./arquivos-apresentacao/Level-Component.jpeg)
+![Diagrama Interfaces](assets/BoardInterfaces.png)
 
 Interface agregadora do componente em Java:
 
@@ -230,7 +332,7 @@ public interface iBoardProperties {
 
 > Responsável pela criação do tabuleiro da fase ou da luta com o vilão da fase.
 
-![Componente](./arquivos-apresentacao/builder.jpg)
+![Componente](assets/builder.jpg)
 
 **Ficha Técnica**
 
@@ -244,7 +346,7 @@ Interfaces | `iBuilderProperties`
 
 Interfaces associadas a esse componente:
 
-![Diagrama Interfaces](./arquivos-apresentacao/Builder-Component.png)
+![Diagrama Interfaces](assets/Builder-Component.png)
 
 Interface agregadora do componente em Java:
 
@@ -261,7 +363,7 @@ public interface iBuilderProperties {
 
 > Demonimamos como componente gameController uma classe e uma interface descrita a seguir. Este componente é responsável pelo controle geral do jogo.
 
-![Componente](./arquivos-apresentacao/gameController.jpg)
+![Componente](assets/gameController.jpg)
 
 **Ficha Técnica**
 
@@ -269,13 +371,13 @@ item | Detalhamento
 ----- | -----
 Classe | `src.GameControllerComponent`
 Autores | `Beatriz Iamauchi Barroso` <br> `Pedro Igor Salvador Alves`
-Interfaces | `iControllerProperties`
+Interfaces | `iGameControllerProperties`
 
 ### Interfaces
 
 Interfaces associadas a esse componente:
 
-![Diagrama Interfaces](./arquivos-apresentacao/GameController-Component.png)
+![Diagrama Interfaces](assets/GameController-Component.png)
 
 Interface agregadora do componente em Java:
 
@@ -292,7 +394,7 @@ public interface iGameControllerProperties {
 
 > Demonimamos como componente graphController uma classe e uma interface descrita a seguir. Este componente é responsável pelo controle geral do gráfico do jogo, separando o gráficos por: BoardScreen (tabuleiro), FightScreen (tela de batalha com vilão), InitialScreen (tela inicial de instruções do jogo), e PlayAgainScreen (tela de vitória ou derrota do jogo).
 
-![Componente - ALTERAR A IMAGEM](./arquivos-apresentacao/graphController.jpg)
+![Componente - ALTERAR A IMAGEM](assets/GraphControllerComponent.jpg)
 
 **Ficha Técnica**
 
@@ -300,13 +402,13 @@ item | Detalhamento
 ----- | -----
 Classe | `src.GraphControllerComponent`
 Autores | `Beatriz Iamauchi Barroso` <br> `Pedro Igor Salvador Alves`
-Interfaces |
+Interfaces | `iGraphControllerProperties`
 
 ### Interfaces
 
 Interfaces associadas a esse componente:
 
-![Componente](./arquivos-apresentacao/GraphController-Component.png)
+![Componente](assets/GraphController-Component.png)
 
 Interface agregadora do componente em Java:
 
@@ -366,28 +468,6 @@ Método | Objetivo
 `getCell` | Retorna determinada célula do tabuleiro
 `getBoard` | Retorna o tabuleiro
 
-### Interface `iFightProperties - A FAZER`
-
-Interface que provê algumas das funções da luta
-
-~~~java
-public interface iFightProperties {
-    int getLevel();
-    void setLevel(int level);
-    void update(iCharacterProperties avatar, iCharacterProperties villan, String movement);
-    boolean update(iCharacterProperties avatar, iCharacterProperties villan);
-    int fightContinues(iCharacterProperties avatar, iCharacterProperties villan);
-}
-~~~
-
-Método | Objetivo
--------| --------
-`getLevel` | Retorna o nível do tabuleiro
-`setLevel` | Atribui um novo nível ao tabuleiro
-`update` | Atualiza os valores de score e life do Avatar Aang
-`update` | Atualiza os valores de score e life do Vilão
-`fightContinues` | Verifica se a luta continua
-
 ### Interface `iBuilderPropeties`
 
 Interface que provê algumas das funções do tabuleiro
@@ -426,7 +506,7 @@ Método | Objetivo
 
 ## Diagrama da hierarquia de exceções
 
-![Hierarquia Exceções](./arquivos-apresentacao/Exception-Hierarchy.png)
+![Hierarquia Exceções](assets/Exception-Hierarchy.png)
 
 ## Descrição das classes de exceção
 

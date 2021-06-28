@@ -1,44 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="avatar-escape:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-<<<<<<< HEAD
-      <change afterPath="$PROJECT_DIR$/out/production/avatar-escape/exceptions/InvalidKey/InvalidKey.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/avatar-escape/exceptions/InvalidKey/InvalidKeyBoard.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/avatar-escape/exceptions/InvalidKey/InvalidKeyFight.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/avatar-escape/exceptions/InvalidMovement/InvalidMovement.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/avatar-escape/exceptions/InvalidMovement/OutOfBoard.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/exceptions/InvalidMovement/InvalidMovement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/exceptions/InvalidMovement/OutOfBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/avatar-escape/GameControllerComponent/GameController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/avatar-escape/GameControllerComponent/iGameControllerProperties.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/avatar-escape/GraphControllerComponent/BoardScreen/BoardScreenController$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/avatar-escape/GraphControllerComponent/BoardScreen/BoardScreenController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/avatar-escape/GraphControllerComponent/BoardScreen/BoardScreenDesigner.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/avatar-escape/GraphControllerComponent/BoardScreen/BoardScreenDesigner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/avatar-escape/GraphControllerComponent/InitialScreen/InitialScreenController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/avatar-escape/GraphControllerComponent/Main/GraphController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/avatar-escape/GraphControllerComponent/Main/GraphController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/avatar-escape/GraphControllerComponent/PlayAgainScreen/PlayAgainScreenDesigner$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/avatar-escape/GraphControllerComponent/PlayAgainScreen/PlayAgainScreenDesigner.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/avatar-escape/assets/instructions/gameInstructions.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/avatar-escape/assets/instructions/gameInstructions.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameControllerComponent/iGameControllerProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameControllerComponent/iGameControllerProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GraphControllerComponent/BoardScreen/BoardScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphControllerComponent/BoardScreen/BoardScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GraphControllerComponent/BoardScreen/BoardScreenDesigner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphControllerComponent/BoardScreen/BoardScreenDesigner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GraphControllerComponent/FightScreen/FightScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphControllerComponent/FightScreen/FightScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GraphControllerComponent/InitialScreen/InitialScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphControllerComponent/InitialScreen/InitialScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GraphControllerComponent/InitialScreen/InitialScreenDesigner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphControllerComponent/InitialScreen/InitialScreenDesigner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GraphControllerComponent/Main/GraphController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphControllerComponent/Main/GraphController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GraphControllerComponent/PlayAgainScreen/PlayAgainScreenDesigner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphControllerComponent/PlayAgainScreen/PlayAgainScreenDesigner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/instructions/gameInstructions.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/instructions/gameInstructions.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exceptions/InvalidKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exceptions/InvalidKey/InvalidKey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exceptions/InvalidKeyBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exceptions/InvalidKey/InvalidKeyBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exceptions/InvalidKeyFight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exceptions/InvalidKey/InvalidKeyFight.java" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
->>>>>>> main
-    </list>
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -193,9 +164,9 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/avatar-escape-app" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="false" />

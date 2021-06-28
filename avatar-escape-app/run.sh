@@ -1,0 +1,1 @@
+java --module-path /path/to/javafx/lib --add-modules javafx.controls,javafx.fxml,javafx.graphics,javafx.web -jar avatar-escape.jar
