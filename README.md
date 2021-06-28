@@ -7,8 +7,6 @@ Modelo de pastas final:
 ~~~
 ├── README.md          <- apresentação do projeto
 │
-├── data               <- dados usados pelo jogo (se houver)
-│
 ├── src                <- projeto em Java (IntelliJ)
 │   │
 │   ├── src            <- arquivos-fonte do projeto (.java)
@@ -32,7 +30,7 @@ Modelo de pastas final:
 > Aang precisa passar por alguns de seus inimigos, com a ajuda de seus amigos, até enfrentar o Senhor do Fogo Ozai e, finalmente, acabar com a tirania da Nação do Fogo sobre o mundo. <br> <br>
 > Para jogar, o usuário deve se locomover pelo tabuleiro podendo encontrar sentinelas (escondidos no mapa, que o fazem perder vida) ou seus amigos (visíveis no mapa, que o fazem ganhar vida e "estado avatar" - força).
 > Chegando a porta no final do tabuleiro, o usuário deve lutar contra o vilão da fase, com 4 tipos de ações que podem o curar, proteger ou atacar o inimigo. Vencendo essa batalha, o usuário vai para a próxima fase. <br> <br>
-> São 4 fases ao todo sendo que a última é composta apenas por uma batalha contra o Lorde do Fogo Ozai. Caso o usuário morra, o jogo será reiniciado em até três vezes, mantendo o tabuleiro. Em caso do usuário morrer mais de 3 vezes, o jogo é terminado e o tabuleiro mudará.
+> São 4 fases ao todo sendo que a última é composta apenas por uma batalha contra o Lorde do Fogo Ozai. Caso o usuário morra em qualquer etapa, o jogo deve ser reiniciado.
 
 # Equipe: Homem-Sereia e Mexilhãozinho
 * `Beatriz Iamauchi Barroso` - `166531`
@@ -41,10 +39,10 @@ Modelo de pastas final:
 # Vídeos do Projeto
 
 ## Vídeo da Prévia
-[Link para o Vídeo da Prévia do Jogo](assets/Video-Previa.mp4)
+[Link para o Vídeo da Prévia do Jogo](https://youtu.be/Y9lEfihkku8)
 
-## Vídeo do Jogo - A FAZER
-[Link para o Vídeo de Demonstração do Jogo]()
+## Vídeo do Jogo
+[Link para o Vídeo de Demonstração do Jogo](https://youtu.be/6X1eaKdYOb4)
 
 
 # Slides do Projeto
@@ -52,8 +50,8 @@ Modelo de pastas final:
 ## Slides da Prévia
 [Link para os Slides da Prévia do Jogo](assets/Slides-Previa.pdf)
 
-## Slides da Apresentação Final - A FAZER
-[Link para os Slides da Apresentação Final do Jogo]()
+## Slides da Apresentação Final
+[Link para os Slides da Apresentação Final do Jogo](assets/Slides-Final.pdf)
 
 ## Relatório de Evolução
 > Nossa ideia inicial era realizar um jogo tipo "campo minado" com algumas estratégias a mais.
@@ -73,7 +71,7 @@ Modelo de pastas final:
 > Fomos apresentados por um amigo do curso a ferramenta JavaFX, a qual permitia a criação dos gráficos de uma forma mais intuitiva e simples.
 > 
 > Estudamos sobre o uso do JavaFX, e então partimos para a construção dos gráficos. Vimos logo de começo que não poderíamos manter a estrutura pensada anteriormente (da construção dos gráficos ser feita em uma mesma classe).
-> Por isso, além da classe GraphController, criamos classes para cada tipo de tabuleiro, com uma classe para a manutenção das ações do usuário (controllers) e os seus graficos (designers, que posicionavam e estilizavam os elementos na tela).
+> Por isso, além da classe GraphController, criamos classes para cada tipo de tela, com uma classe para a manutenção das ações do usuário (controllers) e os seus graficos (designers, que posicionavam e estilizavam os elementos na tela).
 > Assim, dividimos em InitialScreen (tela de instruções do jogo), BoardScreen (tela do tabuleiro de campo minado), FightScreen (tela de batalha contra vilões) e PlayAgainScreen (tela de vitória ou derrota).
 > Ademais, também vimos que algumas das nossas ideias do design do jogo não conseguiriam ser desenvolvidas com o tempo e a ferramenta que tínhamos, o que levou a leves alterações em nosso design.
 > 
@@ -150,7 +148,7 @@ Para salvar o estado do player (Aang) durante as mudanças de fases e no própri
 A classe GraphController declara o método getGame que retorna a instânc ia estática 
 do iGameControllerProperties, fazendo com que haja uma autorreferência da classe. 
 
-![Diagrama do Pattern](assets/diagramaDesignPattern.jpeg)
+![Diagrama do Pattern](assets/DiagramaDesignPattern.jpeg)
 
 ## Código do Pattern
 No código apresentarmos parte da classe GraphController em que focamos no instanciamento do jogo e da tela apenas uma vez. Vide os trechos abaixo em que, ao invés de criarem novas instâncias, apenas acessam globalmente as únicas já criadas.
@@ -197,16 +195,16 @@ public class BoardScreenController extends GameController {
 > aprendemos uma a manipular um novo tipo de ferramenta, isto é, o JavaFX. <br><br>
 > Ao longo do projeto, verificamos que algumas ideias levariam certo tempo e maturidade para serem
 > aplicadas. No entanto, ficam como um anseio da dupla de, no futuro, programá-los:
-> 1. ####Efeitos Sonoros:
+> ####1. Efeitos Sonoros:
 >   * Pensar na experiência do usuário é importante para qualquer tipo de aplicação, sendo o uso
 >   de sons em jogos um componente de tal experiência, já que poderia indicar movimentos corretos e incorretos, por exemplo.
-> 2. ####Vidas:
+> ####2. Vidas:
 >   * Como citado anteriormente, para que o jogo não precisasse ser reiniciado toda vez que o usuário chegasse a vida 0%,
 >   gostariamos de que houvessem 3 chances, assim, o usuário iria jogar no mesmo mapa durante essas 3 chances.
-> 3. ####Animações e mídias mais sofisticadas:
+> ####3. Animações e mídias mais sofisticadas:
 >   * Para melhor o aspecto visual do jogo, também queremos implementar animações mais elegantes
 >   e em 3D.
-> 4. ####Mapas Randomicos:
+> ####4. Mapas Randomicos:
 >   * Por fim, seria muito interessante pensar numa aplicação que cria mapas aleatoriamente
 >   sem precisar criar vários previamente.
 
@@ -299,7 +297,7 @@ public interface iCellProperties {
 
 > Demonimamos como componente Board um conjunto de classes e interfaces descritas a seguir. Este componente é responsável por agregar as células de um tabuleiro e seus atributos ou a criação da luta com o vilão da fase.
 
-![Componente](assets/boardComponent.jpg)
+![Componente](assets/BoardComponent.jpg)
 
 **Ficha Técnica**
 
