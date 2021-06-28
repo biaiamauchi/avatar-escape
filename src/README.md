@@ -1,6 +1,6 @@
-#Como jogar?
+# Como jogar?
 
-###Linux
+### Linux
 1. Baixe a pasta "avatar-escape-app"
 
 2. Baixe o SDK do JavaFX, pelo link https://gluonhq.com/products/javafx/

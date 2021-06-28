@@ -195,16 +195,16 @@ public class BoardScreenController extends GameController {
 > aprendemos uma a manipular um novo tipo de ferramenta, isto é, o JavaFX. <br><br>
 > Ao longo do projeto, verificamos que algumas ideias levariam certo tempo e maturidade para serem
 > aplicadas. No entanto, ficam como um anseio da dupla de, no futuro, programá-los:
-> ####1. Efeitos Sonoros:
+> 1. Efeitos Sonoros:
 >   * Pensar na experiência do usuário é importante para qualquer tipo de aplicação, sendo o uso
 >   de sons em jogos um componente de tal experiência, já que poderia indicar movimentos corretos e incorretos, por exemplo.
-> ####2. Vidas:
+> 2. Vidas:
 >   * Como citado anteriormente, para que o jogo não precisasse ser reiniciado toda vez que o usuário chegasse a vida 0%,
 >   gostariamos de que houvessem 3 chances, assim, o usuário iria jogar no mesmo mapa durante essas 3 chances.
-> ####3. Animações e mídias mais sofisticadas:
+> 3. Animações e mídias mais sofisticadas:
 >   * Para melhor o aspecto visual do jogo, também queremos implementar animações mais elegantes
 >   e em 3D.
-> ####4. Mapas Randomicos:
+> 4. Mapas Randomicos:
 >   * Por fim, seria muito interessante pensar numa aplicação que cria mapas aleatoriamente
 >   sem precisar criar vários previamente.
 
